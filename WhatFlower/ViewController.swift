@@ -19,49 +19,42 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
-        imagePicker.allowsEditing = false
+        imagePicker.allowsEditing = true
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             imageView.image = userPickedImage
             
-            guard let ciImage = CIImage(image: userPickedImage) else {
+            guard let convertedCiImage = CIImage(image: userPickedImage) else {
                 fatalError("Could not convert UIImage to CIImage")
             }
             
-            // detect(image: ciImage)
+            detect(image: convertedCiImage)
         }
         imagePicker.dismiss(animated: true)
     }
     
-    /* func detect(image: CIImage) {
-        guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else {
+    func detect(image: CIImage) {
+        guard let model = try? VNCoreMLModel(for: flower_classifier().model) else {
             fatalError("Loading CoreML model failed.")
         }
         
         let request = VNCoreMLRequest(model: model) { request, error in
-            guard let results = request.results as? [VNClassificationObservation] else {
-                fatalError("Model failed to precess image.")
+            guard let classification = request.results?.first as? VNClassificationObservation else {
+                fatalError("Could not process the classification request.")
             }
-            print(results)
-            if let firstResult = results.first {
-                if firstResult.identifier.contains("hotdog") {
-                    self.navigationItem.title = "Hotdog Detected!"
-                } else {
-                    self.navigationItem.title = "Not a hotdog :c"
-                }
-            }
+            print(classification)
+            self.navigationItem.title = classification.identifier.capitalized
         }
         
         let handler = VNImageRequestHandler(ciImage: image)
-        
         do {
             try handler.perform([request])
         } catch {
             print(error)
         }
-    } */
+    }
 
     @IBAction func cameraPressed(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)

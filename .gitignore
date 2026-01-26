@@ -62,3 +62,5 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 
 flower-classifier.mlmodel
+FlowerClassifier.mlmodel
+
