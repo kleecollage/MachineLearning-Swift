@@ -81,6 +81,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if response.result.isSuccess {
                 print("Got the wikipedia info.")
                 print(response)
+                
+                let flowerJSON: JSON = JSON(response.result.value)
+                let pageId = flowerJSON["query"]["pageid"][0].stringValue
+                let extract = flowerJSON["query"]["pages"][pageId]["extract"].stringValue
+                
+                
             }
         }
     }
