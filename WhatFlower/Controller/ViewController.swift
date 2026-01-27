@@ -10,6 +10,7 @@ import CoreImage
 import Vision
 import AlamoFire
 import SwiftyJSON
+import SDWebImage
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
@@ -31,13 +32,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            imageView.image = userPickedImage
-            
             guard let ciImage = CIImage(image: userPickedImage) else {
                 fatalError("Could not convert UIImage to CIImage")
             }
-            
             detect(image: ciImage)
+            // imageView.image = userPickedImage
         }
         imagePicker.dismiss(animated: true)
     }
@@ -69,12 +68,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let parameters : [String:String] = [
             "format" : "json",
             "action" : "query",
-            "prop" : "extracts",
+            "prop" : "extracts|pageImages",
             "exintro" : "",
             "explaintext" : "",
             "titles" : flowerName,
             “indexpageids” : "",
             "redirects" : "1",
+            "pithumbsize" : "500"
             ]
 
         Alamofire.request(url: wikipediaUrl, method: .get, parameters: parameters).resposeJSON { response in
@@ -84,9 +84,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 let flowerJSON: JSON = JSON(response.result.value)
                 let pageId = flowerJSON["query"]["pageid"][0].stringValue
-                let extract = flowerJSON["query"]["pages"][pageId]["extract"].stringValue
+                let flowerDescription = flowerJSON["query"]["pages"][pageId]["extract"].stringValue
+                let flowerImageURL = flowerJSON["query"]["pages"][pageId]["thumbnail"]["source"].stringValue
                 
-                
+                self.imageView.sd_setImage(with: URL(string: flowerImageURL))
+                self.label.text = flowerDescription
             }
         }
     }
