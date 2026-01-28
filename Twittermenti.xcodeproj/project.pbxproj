@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5981BA132F2A6AEA00D4C975 /* TwitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5981BA122F2A6AEA00D4C975 /* TwitterManager.swift */; };
+		5981BA152F2A6CB400D4C975 /* SecretsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5981BA142F2A6CB400D4C975 /* SecretsManager.swift */; };
+		5981BA172F2AABBD00D4C975 /* TweetSentimentClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5981BA162F2AABBD00D4C975 /* TweetSentimentClassifier.mlmodel */; };
 		59B1F1E72F297854008CCD69 /* twitter-sanders-apple3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59B1F1E62F297854008CCD69 /* twitter-sanders-apple3.csv */; };
 		59B1F1EA2F297B4C008CCD69 /* TwitterAPIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 59B1F1E92F297B4C008CCD69 /* TwitterAPIKit */; };
-		59B1F1EC2F2980E2008CCD69 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B1F1EB2F2980E2008CCD69 /* Env.swift */; };
 		59B1F1EE2F298422008CCD69 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59B1F1ED2F298422008CCD69 /* Secrets.plist */; };
 		AD9EC65020FE2EF4002AE9BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9EC64F20FE2EF4002AE9BF /* AppDelegate.swift */; };
 		AD9EC65220FE2EF4002AE9BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9EC65120FE2EF4002AE9BF /* ViewController.swift */; };
@@ -20,8 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5981BA122F2A6AEA00D4C975 /* TwitterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterManager.swift; sourceTree = "<group>"; };
+		5981BA142F2A6CB400D4C975 /* SecretsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsManager.swift; sourceTree = "<group>"; };
+		5981BA162F2AABBD00D4C975 /* TweetSentimentClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TweetSentimentClassifier.mlmodel; sourceTree = "<group>"; };
 		59B1F1E62F297854008CCD69 /* twitter-sanders-apple3.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "twitter-sanders-apple3.csv"; sourceTree = "<group>"; };
-		59B1F1EB2F2980E2008CCD69 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		59B1F1ED2F298422008CCD69 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		AD9EC64C20FE2EF4002AE9BF /* Twittermenti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twittermenti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD9EC64F20FE2EF4002AE9BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,8 +76,10 @@
 				AD9EC65820FE2EF7002AE9BF /* LaunchScreen.storyboard */,
 				AD9EC65B20FE2EF7002AE9BF /* Info.plist */,
 				59B1F1E62F297854008CCD69 /* twitter-sanders-apple3.csv */,
-				59B1F1EB2F2980E2008CCD69 /* Env.swift */,
 				59B1F1ED2F298422008CCD69 /* Secrets.plist */,
+				5981BA122F2A6AEA00D4C975 /* TwitterManager.swift */,
+				5981BA142F2A6CB400D4C975 /* SecretsManager.swift */,
+				5981BA162F2AABBD00D4C975 /* TweetSentimentClassifier.mlmodel */,
 			);
 			path = Twittermenti;
 			sourceTree = "<group>";
@@ -156,9 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59B1F1EC2F2980E2008CCD69 /* Env.swift in Sources */,
+				5981BA132F2A6AEA00D4C975 /* TwitterManager.swift in Sources */,
+				5981BA172F2AABBD00D4C975 /* TweetSentimentClassifier.mlmodel in Sources */,
 				AD9EC65220FE2EF4002AE9BF /* ViewController.swift in Sources */,
 				AD9EC65020FE2EF4002AE9BF /* AppDelegate.swift in Sources */,
+				5981BA152F2A6CB400D4C975 /* SecretsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
