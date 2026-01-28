@@ -20,13 +20,31 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task {
-            await TwitterManager.shared.searchTweets()
-        }
         let prediction = try! sentimentalClassifier.prediction(text: "@Apple is the best company!")
         print(prediction.label)
     }
 
     @IBAction func predictPressed(_ sender: Any) {
+        if let searchText = textField.text {
+            Task {
+                let score = await TwitterManager.shared.searchTweets()
+                switch score {
+                case 21...100:
+                    DispatchQueue.main.async { self.sentimentLabel.text = "🥰" }
+                case 11...20:
+                    DispatchQueue.main.async { self.sentimentLabel.text = "😊" }
+                case 1...10:
+                    DispatchQueue.main.async { self.sentimentLabel.text = "😐" }
+                case 0:
+                    DispatchQueue.main.async { self.sentimentLabel.text = "😑" }
+                case (-10)...(-1):
+                    DispatchQueue.main.async { self.sentimentLabel.text = "😡" }
+                case (-20)...(-11):
+                    DispatchQueue.main.async { self.sentimentLabel.text = "🤮" }
+                default:
+                    DispatchQueue.main.async { self.sentimentLabel.text = "💩" }
+                }
+            }
+        }
     }
 }

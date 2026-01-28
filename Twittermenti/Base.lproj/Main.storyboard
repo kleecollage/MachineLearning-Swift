@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gJu-1w-wsk">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
@@ -13,24 +13,24 @@
             <objects>
                 <viewController id="gJu-1w-wsk" customClass="ViewController" customModule="Twittermenti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a7b-3t-cqJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jwa-r8-Fd9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="MLc-Nf-Ipl">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="MLc-Nf-Ipl">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="802"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ep9-2h-KsB">
-                                                <rect key="frame" x="133.5" y="0.0" width="108" height="457"/>
+                                                <rect key="frame" x="142.66666666666666" y="0.0" width="108" height="668"/>
                                                 <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How do people feel about..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HP9-ee-vOF">
-                                                <rect key="frame" x="0.0" y="512" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="685" width="393" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="6wm-BH-uBw"/>
                                                 </constraints>
@@ -38,7 +38,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rge-zl-NGZ">
-                                                <rect key="frame" x="137.5" y="617" width="100" height="50"/>
+                                                <rect key="frame" x="146.66666666666666" y="752" width="100" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="lv1-5K-4W0"/>
                                                 </constraints>
@@ -60,7 +60,7 @@
                                 <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="MLc-Nf-Ipl" firstAttribute="top" secondItem="jwa-r8-Fd9" secondAttribute="top" id="0zn-oV-LK2"/>
-                                    <constraint firstAttribute="bottom" secondItem="MLc-Nf-Ipl" secondAttribute="bottom" id="L9S-7h-rMr"/>
+                                    <constraint firstAttribute="bottom" secondItem="MLc-Nf-Ipl" secondAttribute="bottom" constant="50" id="L9S-7h-rMr"/>
                                     <constraint firstItem="MLc-Nf-Ipl" firstAttribute="leading" secondItem="jwa-r8-Fd9" secondAttribute="leading" id="P1B-65-SvE"/>
                                     <constraint firstAttribute="trailing" secondItem="MLc-Nf-Ipl" secondAttribute="trailing" id="nXs-gW-13G"/>
                                 </constraints>
@@ -71,7 +71,7 @@
                         <constraints>
                             <constraint firstItem="jwa-r8-Fd9" firstAttribute="leading" secondItem="Cel-SL-yWb" secondAttribute="leading" id="Xh1-ph-0nL"/>
                             <constraint firstItem="jwa-r8-Fd9" firstAttribute="trailing" secondItem="Cel-SL-yWb" secondAttribute="trailing" id="a1L-0a-HgM"/>
-                            <constraint firstItem="jwa-r8-Fd9" firstAttribute="bottom" secondItem="Cel-SL-yWb" secondAttribute="bottom" id="htS-27-SyT"/>
+                            <constraint firstItem="jwa-r8-Fd9" firstAttribute="bottom" secondItem="a7b-3t-cqJ" secondAttribute="bottom" id="htS-27-SyT"/>
                             <constraint firstItem="jwa-r8-Fd9" firstAttribute="top" secondItem="a7b-3t-cqJ" secondAttribute="top" id="iZh-hN-vbU"/>
                         </constraints>
                     </view>
@@ -83,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z31-Pp-XLb" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="135.1145038167939" y="133.09859154929578"/>
         </scene>
     </scenes>
 </document>

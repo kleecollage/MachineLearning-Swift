@@ -8,10 +8,12 @@
 
 import Foundation
 import TwitterAPIKit
+import SwiftyJSON
 
 class TwitterManager {
     static let shared = TwitterManager()
     private var client: TwitterAPIClient!
+    let sentimentalClassifier = TweetSentimentClassifier()
     
     private init() {
         self.client = setupClient()
@@ -40,22 +42,52 @@ class TwitterManager {
         return TwitterAPIClient(.bearer(bearerToken))
     }
     
-    func searchTweets() async {
-        let request = GetSearchTweetsRequestV1(
+    func searchTweets() async -> Int {
+        /* let request = GetSearchTweetsRequestV1(
             q: "@Apple",
-            count: 2,
+            count: 100,
             resultType: .recent
         )
-            
-        let request2 = GetTweetsSearchAllRequestV2(
-            query: "@Apple",
-            maxResults: 2
-        )
-        
         let result = await client.v1.search.searchTweets(request).responseData.result
-        let result2 = await client.v2.search.searchTweetsAll(request2).responseData.result
-        // print(result)
-        print(result2)
+        print(result) */
+        
+        var sentimentScore: Int = 0
+        let requestV2 = GetTweetsSearchAllRequestV2(
+            query: "@Apple",
+            maxResults: 100
+        )
+        let resultV2 = await client.v2.search.searchTweetsAll(requestV2).responseData.result
+        switch resultV2 {
+            case .success(let data):
+                let json = JSON(data)
+                var tweets = [TweetSentimentClassifierInput]()
+            
+                for i in 0..<min(100, json["data"].count) {
+                    if let tweet = json["data"][i]["text"].string {
+                        let tweetForClassification = TweetSentimentClassifierInput(text: tweet)
+                        tweets.append(tweetForClassification)
+                    }
+                }
+                print("Tweets found: \(tweets)")
+                do {
+                    let predictions = try self.sentimentalClassifier.predictions(inputs: tweets)
+                    print(predictions[0].label)
+                    for prediction in predictions {
+                        print(prediction.label)
+                        let sentiment = prediction.label
+                        if sentiment == "Pos" {
+                            sentimentScore += 1
+                        } else if sentiment == "Neg" {
+                            sentimentScore -= 1
+                        }
+                    }
+                } catch {
+                    print("ERROR: There was an error making a prediction, \(error)")
+                }
+            case .failure(let error):
+                print(error)
+        }
+        return sentimentScore
     }
 
     
