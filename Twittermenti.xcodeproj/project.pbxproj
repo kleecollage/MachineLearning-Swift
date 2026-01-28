@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59B1F1E72F297854008CCD69 /* twitter-sanders-apple3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 59B1F1E62F297854008CCD69 /* twitter-sanders-apple3.csv */; };
+		59B1F1EA2F297B4C008CCD69 /* TwitterAPIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 59B1F1E92F297B4C008CCD69 /* TwitterAPIKit */; };
+		59B1F1EC2F2980E2008CCD69 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B1F1EB2F2980E2008CCD69 /* Env.swift */; };
+		59B1F1EE2F298422008CCD69 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59B1F1ED2F298422008CCD69 /* Secrets.plist */; };
 		AD9EC65020FE2EF4002AE9BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9EC64F20FE2EF4002AE9BF /* AppDelegate.swift */; };
 		AD9EC65220FE2EF4002AE9BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9EC65120FE2EF4002AE9BF /* ViewController.swift */; };
 		AD9EC65520FE2EF4002AE9BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD9EC65320FE2EF4002AE9BF /* Main.storyboard */; };
@@ -16,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		59B1F1E62F297854008CCD69 /* twitter-sanders-apple3.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = "twitter-sanders-apple3.csv"; sourceTree = "<group>"; };
+		59B1F1EB2F2980E2008CCD69 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		59B1F1ED2F298422008CCD69 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		AD9EC64C20FE2EF4002AE9BF /* Twittermenti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twittermenti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD9EC64F20FE2EF4002AE9BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD9EC65120FE2EF4002AE9BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59B1F1EA2F297B4C008CCD69 /* TwitterAPIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +71,9 @@
 				AD9EC65620FE2EF7002AE9BF /* Assets.xcassets */,
 				AD9EC65820FE2EF7002AE9BF /* LaunchScreen.storyboard */,
 				AD9EC65B20FE2EF7002AE9BF /* Info.plist */,
+				59B1F1E62F297854008CCD69 /* twitter-sanders-apple3.csv */,
+				59B1F1EB2F2980E2008CCD69 /* Env.swift */,
+				59B1F1ED2F298422008CCD69 /* Secrets.plist */,
 			);
 			path = Twittermenti;
 			sourceTree = "<group>";
@@ -93,8 +104,9 @@
 		AD9EC64420FE2EF4002AE9BF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 2620;
 				ORGANIZATIONNAME = "London App Brewery";
 				TargetAttributes = {
 					AD9EC64B20FE2EF4002AE9BF = {
@@ -111,6 +123,9 @@
 				Base,
 			);
 			mainGroup = AD9EC64320FE2EF4002AE9BF;
+			packageReferences = (
+				59B1F1E82F297B4C008CCD69 /* XCRemoteSwiftPackageReference "TwitterAPIKit" */,
+			);
 			productRefGroup = AD9EC64D20FE2EF4002AE9BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,8 +141,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD9EC65A20FE2EF7002AE9BF /* LaunchScreen.storyboard in Resources */,
+				59B1F1E72F297854008CCD69 /* twitter-sanders-apple3.csv in Resources */,
 				AD9EC65720FE2EF7002AE9BF /* Assets.xcassets in Resources */,
 				AD9EC66220FE319B002AE9BF /* README.md in Resources */,
+				59B1F1EE2F298422008CCD69 /* Secrets.plist in Resources */,
 				AD9EC65520FE2EF4002AE9BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59B1F1EC2F2980E2008CCD69 /* Env.swift in Sources */,
 				AD9EC65220FE2EF4002AE9BF /* ViewController.swift in Sources */,
 				AD9EC65020FE2EF4002AE9BF /* AppDelegate.swift in Sources */,
 			);
@@ -192,6 +210,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -201,8 +220,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = RR58AKXG9R;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -222,6 +243,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -253,6 +275,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -262,8 +285,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = RR58AKXG9R;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -276,6 +301,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -287,13 +313,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3ECFYJZ64T;
 				INFOPLIST_FILE = Twittermenti/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.londonappbrewery.Twittermenti;
+				PRODUCT_BUNDLE_IDENTIFIER = com.klee.Twittermenti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -305,13 +331,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3ECFYJZ64T;
 				INFOPLIST_FILE = Twittermenti/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.londonappbrewery.Twittermenti;
+				PRODUCT_BUNDLE_IDENTIFIER = com.klee.Twittermenti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -340,6 +366,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		59B1F1E82F297B4C008CCD69 /* XCRemoteSwiftPackageReference "TwitterAPIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:mironal/TwitterAPIKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		59B1F1E92F297B4C008CCD69 /* TwitterAPIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 59B1F1E82F297B4C008CCD69 /* XCRemoteSwiftPackageReference "TwitterAPIKit" */;
+			productName = TwitterAPIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AD9EC64420FE2EF4002AE9BF /* Project object */;
 }
