@@ -27,24 +27,29 @@ class ViewController: UIViewController {
     @IBAction func predictPressed(_ sender: Any) {
         if let searchText = textField.text {
             Task {
-                let score = await TwitterManager.shared.searchTweets()
-                switch score {
-                case 21...100:
-                    DispatchQueue.main.async { self.sentimentLabel.text = "🥰" }
-                case 11...20:
-                    DispatchQueue.main.async { self.sentimentLabel.text = "😊" }
-                case 1...10:
-                    DispatchQueue.main.async { self.sentimentLabel.text = "😐" }
-                case 0:
-                    DispatchQueue.main.async { self.sentimentLabel.text = "😑" }
-                case (-10)...(-1):
-                    DispatchQueue.main.async { self.sentimentLabel.text = "😡" }
-                case (-20)...(-11):
-                    DispatchQueue.main.async { self.sentimentLabel.text = "🤮" }
-                default:
-                    DispatchQueue.main.async { self.sentimentLabel.text = "💩" }
-                }
+                await TwitterManager.shared.searchTweets()
+                let score = TwitterManager.shared.sentimentScore
+                updateUI(score)
             }
+        }
+    }
+    
+    func updateUI(_ score: Int) {
+        switch score {
+        case 21...100:
+            DispatchQueue.main.async { self.sentimentLabel.text = "🥰" }
+        case 11...20:
+            DispatchQueue.main.async { self.sentimentLabel.text = "😊" }
+        case 1...10:
+            DispatchQueue.main.async { self.sentimentLabel.text = "😐" }
+        case 0:
+            DispatchQueue.main.async { self.sentimentLabel.text = "😑" }
+        case (-10)...(-1):
+            DispatchQueue.main.async { self.sentimentLabel.text = "😡" }
+        case (-20)...(-11):
+            DispatchQueue.main.async { self.sentimentLabel.text = "🤮" }
+        default:
+            DispatchQueue.main.async { self.sentimentLabel.text = "💩" }
         }
     }
 }

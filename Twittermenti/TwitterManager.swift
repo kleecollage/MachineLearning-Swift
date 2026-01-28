@@ -14,6 +14,7 @@ class TwitterManager {
     static let shared = TwitterManager()
     private var client: TwitterAPIClient!
     let sentimentalClassifier = TweetSentimentClassifier()
+    var sentimentScore: Int = 0
     
     private init() {
         self.client = setupClient()
@@ -42,7 +43,7 @@ class TwitterManager {
         return TwitterAPIClient(.bearer(bearerToken))
     }
     
-    func searchTweets() async -> Int {
+    func searchTweets() async {
         /* let request = GetSearchTweetsRequestV1(
             q: "@Apple",
             count: 100,
@@ -51,7 +52,6 @@ class TwitterManager {
         let result = await client.v1.search.searchTweets(request).responseData.result
         print(result) */
         
-        var sentimentScore: Int = 0
         let requestV2 = GetTweetsSearchAllRequestV2(
             query: "@Apple",
             maxResults: 100
@@ -69,28 +69,29 @@ class TwitterManager {
                     }
                 }
                 print("Tweets found: \(tweets)")
-                do {
-                    let predictions = try self.sentimentalClassifier.predictions(inputs: tweets)
-                    print(predictions[0].label)
-                    for prediction in predictions {
-                        print(prediction.label)
-                        let sentiment = prediction.label
-                        if sentiment == "Pos" {
-                            sentimentScore += 1
-                        } else if sentiment == "Neg" {
-                            sentimentScore -= 1
-                        }
-                    }
-                } catch {
-                    print("ERROR: There was an error making a prediction, \(error)")
-                }
+                makePredictions(with: tweets)
             case .failure(let error):
                 print(error)
         }
-        return sentimentScore
     }
-
     
+    func makePredictions(with tweets:[TweetSentimentClassifierInput]) {
+        do {
+            let predictions = try self.sentimentalClassifier.predictions(inputs: tweets)
+            print(predictions[0].label)
+            for prediction in predictions {
+                print(prediction.label)
+                let sentiment = prediction.label
+                if sentiment == "Pos" {
+                    sentimentScore += 1
+                } else if sentiment == "Neg" {
+                    sentimentScore -= 1
+                }
+            }
+        } catch {
+            print("ERROR: There was an error making a prediction, \(error)")
+        }
+    }
 }
 
 // example 4 documentation
